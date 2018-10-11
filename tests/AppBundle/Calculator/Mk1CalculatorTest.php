@@ -3,8 +3,8 @@
 namespace Tests\AppBundle\Calculator;
 
 use AppBundle\Calculator\CalculatorInterface;
-use AppBundle\Model\Change;
 use AppBundle\Calculator\Mk1Calculator;
+use AppBundle\Model\Change;
 use PHPUnit\Framework\TestCase;
 
 class Mk1CalculatorTest extends TestCase
@@ -30,4 +30,5 @@ class Mk1CalculatorTest extends TestCase
         $this->assertInstanceOf(Change::class, $change);
         $this->assertEquals(2, $change->coin1);
     }
+
 }

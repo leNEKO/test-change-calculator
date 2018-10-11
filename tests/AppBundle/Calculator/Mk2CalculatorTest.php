@@ -3,8 +3,8 @@
 namespace Tests\AppBundle\Calculator;
 
 use AppBundle\Calculator\CalculatorInterface;
-use AppBundle\Model\Change;
 use AppBundle\Calculator\Mk2Calculator;
+use AppBundle\Model\Change;
 use PHPUnit\Framework\TestCase;
 
 class Mk2CalculatorTest extends TestCase
@@ -35,5 +35,14 @@ class Mk2CalculatorTest extends TestCase
     {
         $change = $this->calculator->getChange(1);
         $this->assertNull($change);
+    }
+
+    public function testGetChangeHard()
+    {
+        $change = $this->calculator->getChange(21);
+        $this->assertNotNull($change);
+        $this->assertEquals(3, $change->coin2);
+        $this->assertEquals(1, $change->bill5);
+        $this->assertEquals(1, $change->bill10);
     }
 }
