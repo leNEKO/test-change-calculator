@@ -16,9 +16,6 @@ class DefaultController extends Controller
      */
     public function get_change(string $model, int $amount)
     {
-        // default statut
-        $statut = Response::HTTP_OK;
-
         // get calculator
         $calculator = (new CalculatorRegistry())->getCalculatorFor($model);
 
@@ -27,12 +24,15 @@ class DefaultController extends Controller
             return (new Response())->setStatusCode(Response::HTTP_NOT_FOUND);
         }
 
+        // default status
+        $status = Response::HTTP_OK;
+
         // if no change solution
         if (!$change = $calculator->getChange($amount)) {
-            $statut = Response::HTTP_NO_CONTENT;
+            $status = Response::HTTP_NO_CONTENT;
         }
 
         // yay! success
-        return $this->json($change)->setStatusCode($statut);
+        return $this->json($change)->setStatusCode($status);
     }
 }
