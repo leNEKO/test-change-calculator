@@ -101,9 +101,6 @@ trait CalculatorTrait
         return $change_map;
     }
 
-    /**
-     * checking if the con
-     */
     public function __construct()
     {
         // check if values in $conf are part of Model\Change property
