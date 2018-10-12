@@ -34,7 +34,7 @@ trait CalculatorTrait
     public function getChange(int $amount): ?Change
     {
         // if empty change
-        if (0 == $amount) {
+        if (0 === $amount) {
             return new Change();
         }
 
