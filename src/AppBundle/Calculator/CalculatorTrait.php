@@ -15,7 +15,6 @@ trait CalculatorTrait
     {
         // let's extract model name from the class name
         preg_match("/(?<model>\w+)Calculator/", get_class($this), $m);
-        // TODO: not so useful yet, as we keep on maintaining the model list hard coded in Registry\CalculatorRegistry .
 
         return strtolower($m['model']);
     }
